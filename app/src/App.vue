@@ -1,5 +1,6 @@
 <template>
   <t-config-provider :global-config="{ classPrefix: 't' }">
+    <div id="my"></div>
     <t-space direction="vertical" style="width: 100%; text-align: center">
       <logo />
       <h3>Welcome to use TDesign！</h3>
@@ -25,6 +26,10 @@
 </template>
 
 <script setup lang="ts">
+import { setupCounter } from '@kuaitu/core'
+import { ref, onMounted } from 'vue'
+
+
 import {
   AddIcon,
   CloudUploadIcon,
@@ -32,5 +37,10 @@ import {
   CloudDownloadIcon,
 } from "tdesign-icons-vue-next";
 import Logo from "../assets/svg/assets-t-logo.svg?component";
+onMounted(() => {
+  const btn = document.querySelector('#my')
+  setupCounter(btn)
+})
+
 </script>
 
